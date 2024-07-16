@@ -15,3 +15,5 @@ The script gets initialized right away when the class is included. To start the 
 
 ``
 require_once "system/VisitorLog.php";``
+
+Contact email: marex.crazy@gmail.com
