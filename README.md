@@ -26,7 +26,7 @@ Use it in the URL to keep your own visits unlogged, and as a secutity feature fo
 
 Your traffic page: ``domain.com/traffic.php?token=6yva46``
 
-Any other page you want to NOT be logged: ``domain.com/?token=6yva46`` ``domain.com/index.php?token=6yva46``
+Any other page you want do NOT want to log yourself: ``domain.com/?token=6yva46`` ``domain.com/index.php?token=6yva46``
 
 
 
