@@ -1,6 +1,14 @@
 <?php
-require_once "VisitorLogInc.php";
 require_once "idiorm.php";
+
+// Database configuration..
+ORM::configure(array(
+	"connection_string" => "mysql:host=db_hostname_here;dbname=db_name_here",
+	"username" => "db_username_here",
+	"password" => "db_password_here"
+));
+
+require_once "VisitorLogInc.php";
 
 class VisitorLog {
 
