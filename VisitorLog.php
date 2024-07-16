@@ -123,6 +123,3 @@ class VisitorLog {
 		return $visitors;
 	}
 }
-
-$VisitorLog = new VisitorLog;
-$VisitorLog->start();
