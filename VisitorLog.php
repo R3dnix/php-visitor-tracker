@@ -1,5 +1,6 @@
 <?php
 require_once "idiorm.php";
+$token = "6yva46";
 
 // Database configuration..
 ORM::configure(array(
