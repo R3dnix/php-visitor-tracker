@@ -13,7 +13,7 @@ require_once "VisitorLogInc.php";
 
 class VisitorLog {
 
-	public $database_table = "visitors"; // Set to 'false` to disable..
+    public $database_table = "visitors"; // Set to 'false` to disable..
 
     public function __construct() {
         if($this->database_table) {
@@ -23,12 +23,13 @@ class VisitorLog {
                 $sql = "CREATE TABLE " .$this->database_table. " (
                     id INT(9) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     ip varchar(64) NOT NULL,
-					location varchar(1024) NOT NULL,
+		    location varchar(512) NOT NULL,
                     agent varchar(1024) NOT NULL,
-                    browser varchar(1024) NOT NULL,
-                    os varchar(1024) NOT NULL,
-                    device varchar(1024) NOT NULL,
-                    ref varchar(1024) NOT NULL,
+                    browser varchar(64) NOT NULL,
+                    os varchar(64) NOT NULL,
+                    device varchar(64) NOT NULL,
+                    ref varchar(512) NOT NULL,
+                    country varchar(128) NULL,
                     time int(11) NOT NULL
                 )";
                 if(ORM::raw_execute($sql)) {
@@ -55,7 +56,7 @@ class VisitorLog {
     }
 	
 	private function get_location() {
-		return $curPageName = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1); 
+		return $_SERVER['REQUEST_URI'];
 	}
 	
 	private function get_user_agent() {
@@ -99,7 +100,6 @@ class VisitorLog {
 			"time" => time()
 		);
 		
-		//var_dump($data);
 		$this->log_visitor($data);
 	}	
 	
@@ -124,3 +124,5 @@ class VisitorLog {
 		return $visitors;
 	}
 }
+
+$VisitorLog = new VisitorLog;
