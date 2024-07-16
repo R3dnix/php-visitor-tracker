@@ -15,6 +15,17 @@ foreach($unique_visits_sql as $data)
 	$unique_visits[] = $data["ip"];
 $unique_visits = array_values(array_unique($unique_visits));
 
+// Gather countries by IPs and populate the database..
+if(isset($_GET["countries"])) {
+	foreach($VisitorLog->pull() as $data) {
+		$select_log = ORM::for_table("visitors")->where(array("id" => $data["id"]))->find_one();
+		$select_log->set(array(
+			"country" => ip_to_country($data["ip"])
+		));
+		$select_log->save();
+	}	
+}
+
 // Function to return time of how long ago the visitor was logged..
 function get_time_ago($time) {
 	$time_difference = time() - $time;
