@@ -14,7 +14,29 @@ $unique_visits_sql = ORM::for_table('visitors')->where_not_like('agent', '%googl
 foreach($unique_visits_sql as $data)
 	$unique_visits[] = $data["ip"];
 $unique_visits = array_values(array_unique($unique_visits));
+
+// Function to return time of how long ago the visitor was logged..
+function get_time_ago($time) {
+	$time_difference = time() - $time;
+	if($time_difference < 60 * 5) { return "online"; }
+	$condition = array(12 * 30 * 24 * 60 * 60 => "year",
+				30 * 24 * 60 * 60 => "month",
+				24 * 60 * 60 => "day",
+				60 * 60 => "hour",
+				60 => "minute",
+				1 => "second"
+	);
+	foreach($condition as $secs => $str) {
+		$d = $time_difference / $secs;
+		if($d >= 1) {
+			$t = round( $d );
+			//return $t . " ". $str . ( $t > 1 ? "s" : "" ) . " ago";
+			return $t . " ". $str . ( $t > 1 ? "s" : "" );
+		}
+	}
+}
 ?>
+
 <a href="?token=<?=$token?>&countries" style="float: right; margin-right: 15px;">[Gather Countries]</a>
 
 Visits: <?=ORM::for_table("visitors")->count()?><br />
