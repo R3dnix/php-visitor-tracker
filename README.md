@@ -3,6 +3,7 @@ Simple but effective PHP Script to log data from visitors.
 
 It will automatically create a table "visitors", in case it already does not exist. The script will log the following data:
 - Ip
+- Country
 - UserAgent
 - Browser
 - Operating System
