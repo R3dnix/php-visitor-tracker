@@ -3,7 +3,7 @@
 /* -by b3hindy0u */
 /*******************************************************************************************************************************/
 
-require_once "include.php";
+require_once "VisitorLog.php";
 $token = "6yva46";
 
 // Check if the security token is provided and correct..
