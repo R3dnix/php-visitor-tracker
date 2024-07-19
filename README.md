@@ -30,4 +30,4 @@ Any other page you do NOT want to log yourself: ``domain.com/?token=6yva46`` ``d
 
 
 
-Contact email: marex.crazy@gmail.com
+Contact email: makogroupltd@gmail.com
