@@ -8,14 +8,15 @@ It will automatically create a table "visitors", in case it already does not exi
 - Browser
 - Operating System
 - Device Type
-- Web Location
+- Website Location
 - Ref Page
 - Time
 
-The script gets initialized right away when the class is included. To start the logger just include the script:
+The script gets initialized right away when the class is included. To start the logger just include the script and call $VisitorLog->start(). You can see an example in index.php
 
 ``
-require_once "VisitorLog.php";``
+require_once "VisitorLog.php";
+$VisitorLog->start();``
 
 You should edit the "VisitorLog.php" with your MySQL Database configuration, and also set your Token.
 
