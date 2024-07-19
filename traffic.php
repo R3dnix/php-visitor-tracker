@@ -10,7 +10,7 @@ $token = "6yva46";
 if(!isset($_GET["token"]) || $_GET["token"] != $token) die("Sorry but you very very idiot!");
 
 // Ignore repeating IPs and google bots to get accurate unique visitors count..
-$unique_visits_sql = ORM::for_table('visitors')->where_not_like('agent', '%google.com%')->find_array();
+$unique_visits_sql = ORM::for_table('visitors')->where_not_like('agent', '%google.com%')->where_not_like('agent', '%GoogleOther%')->find_array();
 foreach($unique_visits_sql as $data)
 	$unique_visits[] = $data["ip"];
 $unique_visits = !empty($unique_visits) ? count(array_values(array_unique($unique_visits))) : 0;
@@ -54,7 +54,7 @@ function get_time_ago($time) {
 <a href="?token=<?=$token?>&countries" style="float: right; margin-right: 15px;">[Gather Countries]</a>
 
 Visits: <?=ORM::for_table("visitors")->count()?><br />
-Unique: <?=count($unique_visits)?><br />
+Unique: <?=$unique_visits?><br />
 
 	<div style="float: right">Showing last 50 records. Click <a href="?token=<?=$token?>&show_all">here</a> to show all.</div>
 	<table cellpadding="4" border="0" style="width: 100%; font-size: 15px;">
