@@ -5,4 +5,4 @@ require_once "VisitorLog.php";
 if(!isset($_GET["token"]) || $_GET["token"] != $token) $VisitorLog->start();
 ?>
 
-Just a regular website where you want to implement the tracking system..
+Just a regular website where you want to implement the tracking system.. Use your token in the URL to avoid logging your own visits..
