@@ -13,7 +13,7 @@ if(!isset($_GET["token"]) || $_GET["token"] != $token) die("Sorry but you very v
 $unique_visits_sql = ORM::for_table('visitors')->where_not_like('agent', '%google.com%')->find_array();
 foreach($unique_visits_sql as $data)
 	$unique_visits[] = $data["ip"];
-$unique_visits = array_values(array_unique($unique_visits));
+$unique_visits = !empty($unique_visits) ? count(array_values(array_unique($unique_visits))) : 0;
 
 // Gather countries by IPs and populate the database..
 if(isset($_GET["countries"])) {
