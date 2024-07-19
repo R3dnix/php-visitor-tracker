@@ -14,14 +14,16 @@ It will automatically create a table "visitors", in case it already does not exi
 
 The script gets initialized right away when the class is included. To start the logger just include the script and call $VisitorLog->start(). You can see an example in index.php
 
-``
+```
 require_once "VisitorLog.php";
-$VisitorLog->start();``
+$VisitorLog->start();
+```
 
 You should edit the "VisitorLog.php" with your MySQL Database configuration, and also set your Token.
 
-``
-$token = "6yva46";``
+```
+$token = "6yva46";
+```
 
 Use it in the URL to keep your own visits unlogged, and as a secutity feature for your traffic panel so that only you can see it.
 
