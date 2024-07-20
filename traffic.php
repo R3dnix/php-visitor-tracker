@@ -60,7 +60,7 @@ Unique: <?=$unique_visits?><br />
 	<table cellpadding="4" border="0" style="width: 100%; font-size: 15px;">
 		<thead style="background: black; color: snow;">
 			<tr align="center">
-			<td>Ip</td>
+			<td style="width: 125px;">Ip</td>
 			<td>Location</td>
 			<td style="width: 70px">Time</td>
 			<td>Device</td>
