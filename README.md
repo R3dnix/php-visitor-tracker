@@ -17,7 +17,7 @@ Additional Features:
 - URL Token to avoid tracking your-self
 - Retrieve countries only on panel side to minimize performance impact (Connecting to 3rd party API)
 
-Preview: https://raw.githubusercontent.com/R3dnix/php-visitor-tracker/main/preview.png
+Preview: [https://i.imgur.com/kMtJXDL.png](https://i.imgur.com/kMtJXDL.png)
 ---
 The script gets initialized right away when the class is included. To start the logger just include the script and call $VisitorLog->start(). You can see an example in index.php
 
